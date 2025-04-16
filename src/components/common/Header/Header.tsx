@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Bell, ChevronDown, HelpCircle, LogOut, Menu, Search, Settings, User } from "lucide-react"
+import { useState } from "react";
+import { ChevronDown, LogOut, Menu, Settings, User } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,19 +9,19 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Button } from "@/components/ui/button"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Link } from "react-router-dom"
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const mainNavItems = [
     { name: "Исходные данные", href: "/" },
     { name: "ЛЧ", href: "/lch" },
-  ]
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-blue-900 text-white shadow-sm">
@@ -59,9 +59,16 @@ export const Header = () => {
                 <span className="sr-only">Открыть меню</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-[300px] bg-blue-900 text-white">
+            <SheetContent
+              side="left"
+              className="w-[300px] bg-blue-900 text-white"
+            >
               <div className="flex flex-col space-y-6 py-4">
-                <Link to="/" className="flex items-center space-x-2 px-4" onClick={() => setIsMobileMenuOpen(false)}>
+                <Link
+                  to="/"
+                  className="flex items-center space-x-2 px-4"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
                   <div className="rounded-md bg-white p-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +116,10 @@ export const Header = () => {
           <ul className="flex space-x-1">
             {mainNavItems.map((item) => (
               <li key={item.name}>
-                <Link to={item.href} className="rounded-md px-3 py-2 text-sm font-medium hover:bg-blue-800">
+                <Link
+                  to={item.href}
+                  className="rounded-md px-3 py-2 text-sm font-medium hover:bg-blue-800"
+                >
                   {item.name}
                 </Link>
               </li>
@@ -119,27 +129,18 @@ export const Header = () => {
 
         {/* Right Side Actions */}
         <div className="flex items-center space-x-2">
-          <Button variant="ghost" size="icon" className="text-white hover:bg-blue-800">
-            <Search className="h-5 w-5" />
-            <span className="sr-only">Поиск</span>
-          </Button>
-
-          <Button variant="ghost" size="icon" className="text-white hover:bg-blue-800">
-            <Bell className="h-5 w-5" />
-            <span className="sr-only">Уведомления</span>
-          </Button>
-
-          <Button variant="ghost" size="icon" className="text-white hover:bg-blue-800">
-            <HelpCircle className="h-5 w-5" />
-            <span className="sr-only">Помощь</span>
-          </Button>
-
           {/* User Menu */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="flex items-center space-x-2 text-white hover:bg-blue-800">
+              <Button
+                variant="ghost"
+                className="flex items-center space-x-2 text-white hover:bg-blue-800"
+              >
                 <Avatar className="h-8 w-8">
-                  <AvatarImage src="/placeholder.svg" alt="Аватар пользователя" />
+                  <AvatarImage
+                    src="/placeholder.svg"
+                    alt="Аватар пользователя"
+                  />
                   <AvatarFallback className="bg-blue-700">ИП</AvatarFallback>
                 </Avatar>
                 <div className="hidden text-left md:block">
@@ -169,21 +170,6 @@ export const Header = () => {
           </DropdownMenu>
         </div>
       </div>
-
-      {/* Secondary Navigation / Breadcrumbs */}
-      <div className="border-t border-blue-800 bg-blue-800 px-4 py-2">
-        <div className="container mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-2 text-sm">
-            <span className="text-blue-200">Приморское ЛПУ МГ(МГ)</span>
-            <span className="text-blue-200">/</span>
-            <span>Таблицы данных</span>
-          </div>
-          <div className="text-sm">
-            <span className="text-blue-200">Март 2024</span>
-          </div>
-        </div>
-      </div>
     </header>
-  )
-}
-
+  );
+};

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Table,
   TableBody,
@@ -11,10 +10,9 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { SelectMonth, SelectDepartment } from "./components";
 
 export const InitialData = () => {
-  const [activeTab, setActiveTab] = useState("page1");
-
   // Initial data for the first table
   const [mainData, setMainData] = useState([
     {
@@ -62,23 +60,6 @@ export const InitialData = () => {
       fact: "1,52%",
       note: "",
     },
-  ]);
-
-  // Temperature data for Vladivostok
-  const [tempData, setTempData] = useState([
-    { id: 1, period: "январь", temp: "-13,1", days: "29" },
-    { id: 2, period: "февраль", temp: "-9,8", days: "28" },
-    { id: 3, period: "март", temp: "-2,4", days: "27" },
-    { id: 4, period: "апрель", temp: "4,8", days: "21" },
-    { id: 5, period: "май", temp: "9,9", days: "5" },
-    { id: 6, period: "июнь", temp: "15,8", days: "5" },
-    { id: 7, period: "июль", temp: "19,5", days: "5" },
-    { id: 8, period: "август", temp: "21,0", days: "3" },
-    { id: 9, period: "сентябрь", temp: "16,8", days: "10" },
-    { id: 10, period: "октябрь", temp: "9,7", days: "25" },
-    { id: 11, period: "ноябрь", temp: "-0,3", days: "29" },
-    { id: 12, period: "декабрь", temp: "-9,2", days: "29" },
-    { id: 13, period: "ГОД", temp: "5,0", days: "214" },
   ]);
 
   // Component data
@@ -198,15 +179,6 @@ export const InitialData = () => {
     );
   };
 
-  // Handle changes to temperature data
-  const handleTempDataChange = (id: any, field: any, value: any) => {
-    setTempData(
-      tempData.map((item) =>
-        item.id === id ? { ...item, [field]: value } : item
-      )
-    );
-  };
-
   // Handle changes to component data
   const handleComponentDataChange = (id: any, field: any, value: any) => {
     setComponentData(
@@ -220,13 +192,26 @@ export const InitialData = () => {
     <div className="container mx-auto p-4">
       <Card className="border-2 border-gray-300">
         <CardHeader className="bg-gray-100 border-b-2 border-gray-300 p-2">
-          <CardTitle className="text-center text-lg">
+          <CardTitle className="text-center text-lg mb-4">
             1. Исходные данные для заполнения (вводить обязательно) [СХ и ООП]
-            <div className="font-normal text-base mt-1">за март 2024 года</div>
-            <div className="font-normal text-base mt-1">
-              филиалом ООО 'Газпром трансгаз Томск' Приморское ЛПУ МГ(МГ)
-            </div>
           </CardTitle>
+          <div className="flex justify-center items-center gap-4">
+            <div className="flex items-center justify-between gap-4">
+              <span className="text-sm font-medium">Филиал:</span>
+              <div className="w-full max-w-xs">
+                <SelectDepartment />
+              </div>
+            </div>
+            <div className="flex items-center justify-between gap-4">
+              <span className="text-sm font-medium whitespace-nowrap">
+                Месяц/год:
+              </span>
+
+              <div className="w-full max-w-xs">
+                <SelectMonth />
+              </div>
+            </div>
+          </div>
         </CardHeader>
         <CardContent className="p-0">
           <Table className="border-collapse">
@@ -330,209 +315,144 @@ export const InitialData = () => {
             </p>
           </div>
 
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="mt-4">
-            <TabsList className="w-full">
-              <TabsTrigger value="page1" className="flex-1">
-                Страница 1
-              </TabsTrigger>
-              <TabsTrigger value="page2" className="flex-1">
-                Страница 2
-              </TabsTrigger>
-            </TabsList>
-            <TabsContent value="page1">
-              <div className="bg-yellow-300 p-2 font-bold text-center">
-                Владивосток
-                <div className="font-normal text-sm">(населенный пункт)</div>
-              </div>
-              <Table className="border-collapse">
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="border border-gray-300 text-center font-bold p-2 bg-gray-100">
-                      Период
-                    </TableHead>
-                    <TableHead className="border border-gray-300 text-center font-bold p-2 bg-gray-100">
-                      t°C
-                    </TableHead>
-                    <TableHead className="border border-gray-300 text-center font-bold p-2 bg-gray-100">
-                      Дней
-                    </TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {tempData.map((row) => (
-                    <TableRow
-                      key={row.id}
-                      className={
-                        row.period === "ГОД" ? "bg-gray-100 font-bold" : ""
-                      }
+          <div>
+            <div className="text-center p-2 border border-gray-300 bg-gray-100">
+              <div className="font-bold">Компонентный состав</div>
+              <div className="text-sm">(по паспорту)</div>
+            </div>
+            <Table className="border-collapse">
+              <TableHeader>
+                <TableRow>
+                  <TableHead
+                    rowSpan={2}
+                    className="border border-gray-300 text-center font-bold p-2 bg-gray-100"
+                  >
+                    Наименование
+                  </TableHead>
+                  <TableHead
+                    rowSpan={2}
+                    className="border border-gray-300 text-center font-bold p-2 bg-gray-100"
+                  >
+                    Формула
+                  </TableHead>
+                  <TableHead
+                    colSpan={3}
+                    className="border border-gray-300 text-center font-bold p-2 bg-gray-100"
+                  >
+                    <div className="grid grid-cols-3">
+                      <div className="text-red-600">Норматив</div>
+                      <div className="text-green-600">План</div>
+                      <div className="text-blue-600">Факт</div>
+                    </div>
+                  </TableHead>
+                  <TableHead
+                    rowSpan={2}
+                    className="border border-gray-300 text-center font-bold p-2 bg-gray-100"
+                  >
+                    Примечание
+                  </TableHead>
+                </TableRow>
+                <TableRow>
+                  <TableHead className="border border-gray-300 text-center font-bold p-2 bg-gray-100">
+                    <div className="text-red-600">Мольная доля</div>
+                  </TableHead>
+                  <TableHead className="border border-gray-300 text-center font-bold p-2 bg-gray-100">
+                    <div className="text-green-600">Мольная доля</div>
+                  </TableHead>
+                  <TableHead className="border border-gray-300 text-center font-bold p-2 bg-gray-100">
+                    <div className="text-blue-600">Мольная доля</div>
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {componentData.map((row, index) => (
+                  <TableRow
+                    key={row.id}
+                    className={
+                      index === componentData.length - 1
+                        ? "bg-gray-100 font-bold"
+                        : ""
+                    }
+                  >
+                    <TableCell
+                      className="border border-gray-300 p-2"
+                      colSpan={row.formula ? 1 : 2}
                     >
-                      <TableCell className="border border-gray-300 p-2">
-                        {row.period}
+                      {row.name}
+                    </TableCell>
+                    {row.formula && (
+                      <TableCell className="border border-gray-300 p-2 text-center">
+                        {row.formula}
                       </TableCell>
-                      <TableCell className="border border-gray-300 p-1 text-center">
-                        <input
-                          type="text"
-                          value={row.temp}
-                          onChange={(e) =>
-                            handleTempDataChange(row.id, "temp", e.target.value)
-                          }
-                          className="w-full text-center bg-transparent border-none focus:outline-none focus:ring-1 focus:ring-gray-300 p-1"
-                        />
-                      </TableCell>
-                      <TableCell className="border border-gray-300 p-1 text-center">
-                        <input
-                          type="text"
-                          value={row.days}
-                          onChange={(e) =>
-                            handleTempDataChange(row.id, "days", e.target.value)
-                          }
-                          className="w-full text-center bg-transparent border-none focus:outline-none focus:ring-1 focus:ring-gray-300 p-1"
-                        />
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TabsContent>
-            <TabsContent value="page2">
-              <div className="text-center p-2 border border-gray-300 bg-gray-100">
-                <div className="font-bold">Компонентный состав</div>
-                <div className="text-sm">(по паспорту)</div>
-              </div>
-              <Table className="border-collapse">
-                <TableHeader>
-                  <TableRow>
-                    <TableHead
-                      rowSpan={2}
-                      className="border border-gray-300 text-center font-bold p-2 bg-gray-100"
-                    >
-                      Наименование
-                    </TableHead>
-                    <TableHead
-                      rowSpan={2}
-                      className="border border-gray-300 text-center font-bold p-2 bg-gray-100"
-                    >
-                      Формула
-                    </TableHead>
-                    <TableHead
-                      colSpan={3}
-                      className="border border-gray-300 text-center font-bold p-2 bg-gray-100"
-                    >
-                      <div className="grid grid-cols-3">
-                        <div className="text-red-600">Норматив</div>
-                        <div className="text-green-600">План</div>
-                        <div className="text-blue-600">Факт</div>
-                      </div>
-                    </TableHead>
-                    <TableHead
-                      rowSpan={2}
-                      className="border border-gray-300 text-center font-bold p-2 bg-gray-100"
-                    >
-                      Примечание
-                    </TableHead>
-                  </TableRow>
-                  <TableRow>
-                    <TableHead className="border border-gray-300 text-center font-bold p-2 bg-gray-100">
-                      <div className="text-red-600">Мольная доля</div>
-                    </TableHead>
-                    <TableHead className="border border-gray-300 text-center font-bold p-2 bg-gray-100">
-                      <div className="text-green-600">Мольная доля</div>
-                    </TableHead>
-                    <TableHead className="border border-gray-300 text-center font-bold p-2 bg-gray-100">
-                      <div className="text-blue-600">Мольная доля</div>
-                    </TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {componentData.map((row, index) => (
-                    <TableRow
-                      key={row.id}
-                      className={
-                        index === componentData.length - 1
-                          ? "bg-gray-100 font-bold"
-                          : ""
-                      }
-                    >
+                    )}
+                    <TableCell className="border border-gray-300 p-1 text-center">
+                      <input
+                        type="text"
+                        value={row.normative}
+                        onChange={(e) =>
+                          handleComponentDataChange(
+                            row.id,
+                            "normative",
+                            e.target.value
+                          )
+                        }
+                        className="w-full text-center text-red-600 bg-transparent border-none focus:outline-none focus:ring-1 focus:ring-red-300 p-1"
+                      />
+                    </TableCell>
+                    <TableCell className="border border-gray-300 p-1 text-center">
+                      <input
+                        type="text"
+                        value={row.plan}
+                        onChange={(e) =>
+                          handleComponentDataChange(
+                            row.id,
+                            "plan",
+                            e.target.value
+                          )
+                        }
+                        className="w-full text-center text-green-600 bg-transparent border-none focus:outline-none focus:ring-1 focus:ring-green-300 p-1"
+                      />
+                    </TableCell>
+                    <TableCell className="border border-gray-300 p-1 text-center">
+                      <input
+                        type="text"
+                        value={row.fact}
+                        onChange={(e) =>
+                          handleComponentDataChange(
+                            row.id,
+                            "fact",
+                            e.target.value
+                          )
+                        }
+                        className="w-full text-center text-blue-600 bg-transparent border-none focus:outline-none focus:ring-1 focus:ring-blue-300 p-1"
+                      />
+                    </TableCell>
+                    {index < 10 ? (
                       <TableCell
-                        className="border border-gray-300 p-2"
-                        colSpan={row.formula ? 1 : 2}
+                        rowSpan={index === 0 ? 10 : 0}
+                        className={`border border-gray-300 p-2 align-top break-words whitespace-break-spaces ${
+                          index === 0 ? "" : "hidden"
+                        }`}
                       >
-                        {row.name}
+                        Ввод <span className="text-red-600">нормативных</span> и{" "}
+                        <span className="text-green-600">плановых</span>{" "}
+                        значений по паспортам качества газа за аналогичный месяц
+                        прошлого года. Ввод{" "}
+                        <span className="text-blue-600">факта</span> по паспорту
+                        качества газа за отчетный месяц.
                       </TableCell>
-                      {row.formula && (
-                        <TableCell className="border border-gray-300 p-2 text-center">
-                          {row.formula}
-                        </TableCell>
-                      )}
-                      <TableCell className="border border-gray-300 p-1 text-center">
-                        <input
-                          type="text"
-                          value={row.normative}
-                          onChange={(e) =>
-                            handleComponentDataChange(
-                              row.id,
-                              "normative",
-                              e.target.value
-                            )
-                          }
-                          className="w-full text-center text-red-600 bg-transparent border-none focus:outline-none focus:ring-1 focus:ring-red-300 p-1"
-                        />
+                    ) : (
+                      <TableCell className="border border-gray-300 p-2">
+                        {index === componentData.length - 1
+                          ? "* в расчетности рассчитывается по ГОСТ 30319.3"
+                          : ""}
                       </TableCell>
-                      <TableCell className="border border-gray-300 p-1 text-center">
-                        <input
-                          type="text"
-                          value={row.plan}
-                          onChange={(e) =>
-                            handleComponentDataChange(
-                              row.id,
-                              "plan",
-                              e.target.value
-                            )
-                          }
-                          className="w-full text-center text-green-600 bg-transparent border-none focus:outline-none focus:ring-1 focus:ring-green-300 p-1"
-                        />
-                      </TableCell>
-                      <TableCell className="border border-gray-300 p-1 text-center">
-                        <input
-                          type="text"
-                          value={row.fact}
-                          onChange={(e) =>
-                            handleComponentDataChange(
-                              row.id,
-                              "fact",
-                              e.target.value
-                            )
-                          }
-                          className="w-full text-center text-blue-600 bg-transparent border-none focus:outline-none focus:ring-1 focus:ring-blue-300 p-1"
-                        />
-                      </TableCell>
-                      {index < 10 ? (
-                        <TableCell
-                          rowSpan={index === 0 ? 10 : 0}
-                          className={`border border-gray-300 p-2 align-top break-words whitespace-break-spaces ${
-                            index === 0 ? "" : "hidden"
-                          }`}
-                        >
-                          Ввод <span className="text-red-600">нормативных</span>{" "}
-                          и <span className="text-green-600">плановых</span>{" "}
-                          значений по паспортам качества газа за аналогичный
-                          месяц прошлого года. Ввод{" "}
-                          <span className="text-blue-600">факта</span> по
-                          паспорту качества газа за отчетный месяц.
-                        </TableCell>
-                      ) : (
-                        <TableCell className="border border-gray-300 p-2">
-                          {index === componentData.length - 1
-                            ? "* в расчетности рассчитывается по ГОСТ 30319.3"
-                            : ""}
-                        </TableCell>
-                      )}
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TabsContent>
-          </Tabs>
+                    )}
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
         </CardContent>
       </Card>
     </div>
