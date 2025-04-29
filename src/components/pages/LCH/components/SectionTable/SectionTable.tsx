@@ -43,6 +43,7 @@ export function SectionTable({ section, onSectionChange }: SectionTableProps) {
   // Добавление новой пары диаметр/длина
   const addDiameterLength = () => {
     const updatedSection = { ...section }
+    // @ts-ignore
     updatedSection.diameterLengths.push(createDiameterLength(updatedSection.diameterLengths.length + 1))
     onSectionChange(updatedSection)
   }
@@ -68,9 +69,9 @@ export function SectionTable({ section, onSectionChange }: SectionTableProps) {
 
     // Расчет общего геометрического объема
     const calculateTotalGeometricVolume = () => {
-      const geometricVolume = updatedSection.parameters.find((p) => p.key === "geometricVolume")
+      const geometricVolume = updatedSection.parameters.find((p: any) => p.key === "geometricVolume")
       if (geometricVolume) {
-        const totalGeometricVolume = updatedSection.parameters.find((p) => p.key === "totalGeometricVolume")
+        const totalGeometricVolume = updatedSection.parameters.find((p: any) => p.key === "totalGeometricVolume")
         if (totalGeometricVolume) {
           // Пример расчета: умножаем на 1000 (из тыс. м³ в м³)
           const normValue = Number(geometricVolume.values.normative.value) * 1000
@@ -107,13 +108,13 @@ export function SectionTable({ section, onSectionChange }: SectionTableProps) {
 
     // Расчет среднего давления
     const calculateAveragePressure = () => {
-      const startPressure = updatedSection.parameters.find((p) => p.key === "excessPressureBeforeDisconnectStart")
-      const endPressure = updatedSection.parameters.find((p) => p.key === "excessPressureBeforeDisconnectEnd")
-      const avgPressure = updatedSection.parameters.find((p) => p.key === "averageAbsolutePressureBeforeDisconnect")
+      const startPressure = updatedSection.parameters.find((p: any) => p.key === "excessPressureBeforeDisconnectStart")
+      const endPressure = updatedSection.parameters.find((p: any) => p.key === "excessPressureBeforeDisconnectEnd")
+      const avgPressure = updatedSection.parameters.find((p: any) => p.key === "averageAbsolutePressureBeforeDisconnect")
 
       if (startPressure && endPressure && avgPressure) {
         // Пример расчета: среднее значение + 0.1 (для учета атмосферного давления)
-        const calculateAvg = (start, end) => {
+        const calculateAvg = (start: any, end: any) => {
           const startNum = Number(start)
           const endNum = Number(end)
           if (isNaN(startNum) || isNaN(endNum)) return ""
@@ -141,13 +142,13 @@ export function SectionTable({ section, onSectionChange }: SectionTableProps) {
 
     // Расчет средней температуры
     const calculateAverageTemperature = () => {
-      const startTemp = updatedSection.parameters.find((p) => p.key === "temperatureBeforeDisconnectStart")
-      const endTemp = updatedSection.parameters.find((p) => p.key === "temperatureBeforeDisconnectEnd")
-      const avgTemp = updatedSection.parameters.find((p) => p.key === "averageTemperatureBeforeDisconnect")
+      const startTemp = updatedSection.parameters.find((p: any) => p.key === "temperatureBeforeDisconnectStart")
+      const endTemp = updatedSection.parameters.find((p: any) => p.key === "temperatureBeforeDisconnectEnd")
+      const avgTemp = updatedSection.parameters.find((p: any) => p.key === "averageTemperatureBeforeDisconnect")
 
       if (startTemp && endTemp && avgTemp) {
         // Пример расчета: среднее значение
-        const calculateAvg = (start, end) => {
+        const calculateAvg = (start: any, end: any) => {
           const startNum = Number(start)
           const endNum = Number(end)
           if (isNaN(startNum) || isNaN(endNum)) return ""
@@ -175,11 +176,11 @@ export function SectionTable({ section, onSectionChange }: SectionTableProps) {
 
     // Расчет процента выработки газа
     const calculateGasExhaustionPercentage = () => {
-      const pressureBefore = updatedSection.parameters.find((p) => p.key === "averageAbsolutePressureBeforeDisconnect")
+      const pressureBefore = updatedSection.parameters.find((p: any) => p.key === "averageAbsolutePressureBeforeDisconnect")
       const pressureAfter = updatedSection.parameters.find(
         (p: Parameter) => p.key === "excessPressureAfterExhaustionWithoutMKSStartEditable",
       )
-      const percentage = updatedSection.parameters.find((p) => p.key === "gasExhaustionPercentage")
+      const percentage = updatedSection.parameters.find((p: any) => p.key === "gasExhaustionPercentage")
 
       if (pressureBefore && pressureAfter && percentage) {
         // Пример расчета: (1 - после/до) * 100%
