@@ -739,213 +739,186 @@ export function SectionTable({ section, onSectionChange }: SectionTableProps) {
 
           {/* 49. Объём газа ТГ МКС */}
           {renderParameterRow("gasMksVolumeCubicMeters")}
-          {renderParameterRow("gasMksVolumeFuelEquivalent", false)}
-          {renderParameterRow("gasMksVolumeKg", false)}
+          {renderParameterRow("gasMksVolumeFuelEquivalent")}
+          {renderParameterRow("gasMksVolumeKg")}
 
           {/* 50. Объём газа, опорожняемого из участка */}
           {renderParameterRow("gasEmptiedFromSectionCubicMeters")}
-          {renderParameterRow("gasEmptiedFromSectionFuelEquivalent", false)}
-          {renderParameterRow("gasEmptiedFromSectionKg", false)}
+          {renderParameterRow("gasEmptiedFromSectionFuelEquivalent")}
+          {renderParameterRow("gasEmptiedFromSectionKg")}
 
           {/* 51. Количество продувок при проведении работ */}
           {renderParameterRow("purgeCount")}
 
           {/* 52. Объём газа, расходуемого для удаления газовоздушной смеси по участкам */}
           {renderParameterRow("gasForRemovingMixtureCubicMeters")}
-          {renderParameterRow("gasForRemovingMixtureFuelEquivalent", false)}
-          {renderParameterRow("gasForRemovingMixtureKg", false)}
+          {renderParameterRow("gasForRemovingMixtureFuelEquivalent")}
+          {renderParameterRow("gasForRemovingMixtureKg")}
 
           {/* 53. Суммарный расход газа по участкм */}
           {renderParameterRow("totalGasConsumptionCubicMeters")}
-          {renderParameterRow("totalGasConsumptionFuelEquivalent", false)}
-          {renderParameterRow("totalGasConsumptionKg", false)}
+          {renderParameterRow("totalGasConsumptionFuelEquivalent")}
+          {renderParameterRow("totalGasConsumptionKg")}
 
           {/* 54. ИТОГО, норматив */}
           {renderParameterRow("totalNormativeCubicMeters")}
-          {renderParameterRow("totalNormativeFuelEquivalent", false)}
-          {renderParameterRow("totalNormativeKg", false)}
+          {renderParameterRow("totalNormativeFuelEquivalent")}
+          {renderParameterRow("totalNormativeKg")}
 
           {/* 55. ИТОГО, план */}
           {renderParameterRow("totalPlanCubicMeters")}
-          {renderParameterRow("totalPlanFuelEquivalent", false)}
-          {renderParameterRow("totalPlanKg", false)}
+          {renderParameterRow("totalPlanFuelEquivalent")}
+          {renderParameterRow("totalPlanKg")}
 
           {/* 56. ИТОГО, факт */}
           {renderParameterRow("totalFactCubicMeters")}
-          {renderParameterRow("totalFactFuelEquivalent", false)}
-          {renderParameterRow("totalFactKg", false)}
+          {renderParameterRow("totalFactFuelEquivalent")}
+          {renderParameterRow("totalFactKg")}
 
           {/* 57. Объём выработанного газа БЕЗ включения МКС */}
           {renderParameterRow("gasExhaustedWithoutMKSCubicMeters")}
-          {renderParameterRow("gasExhaustedWithoutMKSFuelEquivalent", false)}
-          {renderParameterRow("gasExhaustedWithoutMKSKg", false)}
+          {renderParameterRow("gasExhaustedWithoutMKSFuelEquivalent")}
+          {renderParameterRow("gasExhaustedWithoutMKSKg")}
 
           {/* 58. Объём выработанного газа С помощью МКС */}
           {renderParameterRow("gasExhaustedWithMKSCubicMeters")}
-          {renderParameterRow("gasExhaustedWithMKSFuelEquivalent", false)}
-          {renderParameterRow("gasExhaustedWithMKSKg", false)}
+          {renderParameterRow("gasExhaustedWithMKSFuelEquivalent")}
+          {renderParameterRow("gasExhaustedWithMKSKg")}
 
           {/* 59. ИТОГО выработано БЕЗ выключения МКС, норматив */}
           {renderParameterRow("totalExhaustedWithoutMKSNormativeCubicMeters")}
           {renderParameterRow(
-            "totalExhaustedWithoutMKSNormativeFuelEquivalent",
-            false
+            "totalExhaustedWithoutMKSNormativeFuelEquivalent"
           )}
-          {renderParameterRow("totalExhaustedWithoutMKSNormativeKg", false)}
+          {renderParameterRow("totalExhaustedWithoutMKSNormativeKg")}
 
           {/* 60. ИТОГО выработано С помощью МКС, норматив */}
           {renderParameterRow("totalExhaustedWithMKSNormativeCubicMeters")}
-          {renderParameterRow(
-            "totalExhaustedWithMKSNormativeFuelEquivalent",
-            false
-          )}
-          {renderParameterRow("totalExhaustedWithMKSNormativeKg", false)}
+          {renderParameterRow("totalExhaustedWithMKSNormativeFuelEquivalent")}
+          {renderParameterRow("totalExhaustedWithMKSNormativeKg")}
 
           {/* 61. ИТОГО выработано БЕЗ включения МКС, план */}
           {renderParameterRow("totalExhaustedWithoutMKSPlanCubicMeters")}
-          {renderParameterRow(
-            "totalExhaustedWithoutMKSPlanFuelEquivalent",
-            false
-          )}
-          {renderParameterRow("totalExhaustedWithoutMKSPlanKg", false)}
+          {renderParameterRow("totalExhaustedWithoutMKSPlanFuelEquivalent")}
+          {renderParameterRow("totalExhaustedWithoutMKSPlanKg")}
 
           {/* 62. ИТОГО выработано С помощью МКС, план */}
           {renderParameterRow("totalExhaustedWithMKSPlanCubicMeters")}
-          {renderParameterRow("totalExhaustedWithMKSPlanFuelEquivalent", false)}
-          {renderParameterRow("totalExhaustedWithMKSPlanKg", false)}
+          {renderParameterRow("totalExhaustedWithMKSPlanFuelEquivalent")}
+          {renderParameterRow("totalExhaustedWithMKSPlanKg")}
 
           {/* 63. ИТОГО выработано БЕЗ включения МКС, факт */}
           {renderParameterRow("totalExhaustedWithoutMKSFactCubicMeters")}
-          {renderParameterRow(
-            "totalExhaustedWithoutMKSFactFuelEquivalent",
-            false
-          )}
-          {renderParameterRow("totalExhaustedWithoutMKSFactKg", false)}
+          {renderParameterRow("totalExhaustedWithoutMKSFactFuelEquivalent")}
+          {renderParameterRow("totalExhaustedWithoutMKSFactKg")}
 
           {/* 64. ИТОГО выработано С помощью МКС, факт */}
           {renderParameterRow("totalExhaustedWithMKSFactCubicMeters")}
-          {renderParameterRow("totalExhaustedWithMKSFactFuelEquivalent", false)}
-          {renderParameterRow("totalExhaustedWithMKSFactKg", false)}
+          {renderParameterRow("totalExhaustedWithMKSFactFuelEquivalent")}
+          {renderParameterRow("totalExhaustedWithMKSFactKg")}
 
           {/* 65. ИТОГО выработано, норматив */}
           {renderParameterRow("totalExhaustedNormativeCubicMeters")}
-          {renderParameterRow("totalExhaustedNormativeFuelEquivalent", false)}
-          {renderParameterRow("totalExhaustedNormativeKg", false)}
+          {renderParameterRow("totalExhaustedNormativeFuelEquivalent")}
+          {renderParameterRow("totalExhaustedNormativeKg")}
 
           {/* 66. ИТОГО выработано, план */}
           {renderParameterRow("totalExhaustedPlanCubicMeters")}
-          {renderParameterRow("totalExhaustedPlanFuelEquivalent", false)}
-          {renderParameterRow("totalExhaustedPlanKg", false)}
+          {renderParameterRow("totalExhaustedPlanFuelEquivalent")}
+          {renderParameterRow("totalExhaustedPlanKg")}
 
           {/* 67. ИТОГО выработано, факт */}
           {renderParameterRow("totalExhaustedFactCubicMeters")}
-          {renderParameterRow("totalExhaustedFactFuelEquivalent", false)}
-          {renderParameterRow("totalExhaustedFactKg", false)}
+          {renderParameterRow("totalExhaustedFactFuelEquivalent")}
+          {renderParameterRow("totalExhaustedFactKg")}
 
           {/* 68. ИТОГО Объем газа, опорожняемого из участка, норматив */}
           {renderParameterRow("totalGasEmptiedNormativeCubicMeters")}
-          {renderParameterRow("totalGasEmptiedNormativeFuelEquivalent", false)}
-          {renderParameterRow("totalGasEmptiedNormativeKg", false)}
+          {renderParameterRow("totalGasEmptiedNormativeFuelEquivalent")}
+          {renderParameterRow("totalGasEmptiedNormativeKg")}
 
           {/* 69. ИТОГО Объем газа, опорожняемого из участка, план */}
           {renderParameterRow("totalGasEmptiedPlanCubicMeters")}
-          {renderParameterRow("totalGasEmptiedPlanFuelEquivalent", false)}
-          {renderParameterRow("totalGasEmptiedPlanKg", false)}
+          {renderParameterRow("totalGasEmptiedPlanFuelEquivalent")}
+          {renderParameterRow("totalGasEmptiedPlanKg")}
 
           {/* 70. ИТОГО Объем газа, опорожняемого из участка, факт */}
           {renderParameterRow("totalGasEmptiedFactCubicMeters")}
-          {renderParameterRow("totalGasEmptiedFactFuelEquivalent", false)}
-          {renderParameterRow("totalGasEmptiedFactKg", false)}
+          {renderParameterRow("totalGasEmptiedFactFuelEquivalent")}
+          {renderParameterRow("totalGasEmptiedFactKg")}
 
           {/* 71. ИТОГО Объем газа, расходуемого для удаления газовоздушной смеси по участкам, норматив */}
           {renderParameterRow("totalGasForMixtureRemovalNormativeCubicMeters")}
           {renderParameterRow(
-            "totalGasForMixtureRemovalNormativeFuelEquivalent",
-            false
+            "totalGasForMixtureRemovalNormativeFuelEquivalent"
           )}
-          {renderParameterRow("totalGasForMixtureRemovalNormativeKg", false)}
+          {renderParameterRow("totalGasForMixtureRemovalNormativeKg")}
 
           {/* 72. ИТОГО Объем газа, расходуемого для удаления газовоздушной смеси по участкам, план */}
           {renderParameterRow("totalGasForMixtureRemovalPlanCubicMeters")}
-          {renderParameterRow(
-            "totalGasForMixtureRemovalPlanFuelEquivalent",
-            false
-          )}
-          {renderParameterRow("totalGasForMixtureRemovalPlanKg", false)}
+          {renderParameterRow("totalGasForMixtureRemovalPlanFuelEquivalent")}
+          {renderParameterRow("totalGasForMixtureRemovalPlanKg")}
 
           {/* 73. ИТОГО Объем газа, расходуемого для удаления газовоздушной смеси по участкам, факт */}
           {renderParameterRow("totalGasForMixtureRemovalFactCubicMeters")}
-          {renderParameterRow(
-            "totalGasForMixtureRemovalFactFuelEquivalent",
-            false
-          )}
-          {renderParameterRow("totalGasForMixtureRemovalFactKg", false)}
+          {renderParameterRow("totalGasForMixtureRemovalFactFuelEquivalent")}
+          {renderParameterRow("totalGasForMixtureRemovalFactKg")}
 
           {/* 74. ИТОГО Объем ТГ МКС, норматив */}
           {renderParameterRow("totalMksGasNormativeCubicMeters")}
-          {renderParameterRow("totalMksGasNormativeFuelEquivalent", false)}
-          {renderParameterRow("totalMksGasNormativeKg", false)}
+          {renderParameterRow("totalMksGasNormativeFuelEquivalent")}
+          {renderParameterRow("totalMksGasNormativeKg")}
 
           {/* 75. ИТОГО Объем ТГ МКС, план */}
           {renderParameterRow("totalMksGasPlanCubicMeters")}
-          {renderParameterRow("totalMksGasPlanFuelEquivalent", false)}
-          {renderParameterRow("totalMksGasPlanKg", false)}
+          {renderParameterRow("totalMksGasPlanFuelEquivalent")}
+          {renderParameterRow("totalMksGasPlanKg")}
 
           {/* 76. ИТОГО Объем ТГ МКС, факт */}
           {renderParameterRow("totalMksGasFactCubicMeters")}
-          {renderParameterRow("totalMksGasFactFuelEquivalent", false)}
-          {renderParameterRow("totalMksGasFactKg", false)}
+          {renderParameterRow("totalMksGasFactFuelEquivalent")}
+          {renderParameterRow("totalMksGasFactKg")}
 
           {/* 77. Объем стравлено, при Р<1,0 МПа */}
           {renderParameterRow("ventedGasLowPressureCubicMeters")}
-          {renderParameterRow("ventedGasLowPressureFuelEquivalent", false)}
-          {renderParameterRow("ventedGasLowPressureKg", false)}
+          {renderParameterRow("ventedGasLowPressureFuelEquivalent")}
+          {renderParameterRow("ventedGasLowPressureKg")}
 
           {/* 78. ИТОГО Объем стравлено, при Р<1,0 МПа, норматив */}
           {renderParameterRow("totalVentedGasLowPressureNormativeCubicMeters")}
           {renderParameterRow(
-            "totalVentedGasLowPressureNormativeFuelEquivalent",
-            false
+            "totalVentedGasLowPressureNormativeFuelEquivalent"
           )}
-          {renderParameterRow("totalVentedGasLowPressureNormativeKg", false)}
+          {renderParameterRow("totalVentedGasLowPressureNormativeKg")}
 
           {/* 79. ИТОГО Объем стравлено, при Р<1,0 МПа, план */}
           {renderParameterRow("totalVentedGasLowPressurePlanCubicMeters")}
-          {renderParameterRow(
-            "totalVentedGasLowPressurePlanFuelEquivalent",
-            false
-          )}
-          {renderParameterRow("totalVentedGasLowPressurePlanKg", false)}
+          {renderParameterRow("totalVentedGasLowPressurePlanFuelEquivalent")}
+          {renderParameterRow("totalVentedGasLowPressurePlanKg")}
 
           {/* 80. ИТОГО Объем стравлено, при Р<1,0 МПа, факт */}
           {renderParameterRow("totalVentedGasLowPressureFactCubicMeters")}
-          {renderParameterRow(
-            "totalVentedGasLowPressureFactFuelEquivalent",
-            false
-          )}
-          {renderParameterRow("totalVentedGasLowPressureFactKg", false)}
+          {renderParameterRow("totalVentedGasLowPressureFactFuelEquivalent")}
+          {renderParameterRow("totalVentedGasLowPressureFactKg")}
 
           {/* 81. Перед проведением ремонтных работ, за исключением объема ТП, при Р<1 МПа */}
           {renderParameterRow(
             "gasBeforeRepairExcludingTPLowPressureCubicMeters"
           )}
           {renderParameterRow(
-            "gasBeforeRepairExcludingTPLowPressureFuelEquivalent",
-            false
+            "gasBeforeRepairExcludingTPLowPressureFuelEquivalent"
           )}
-          {renderParameterRow("gasBeforeRepairExcludingTPLowPressureKg", false)}
+          {renderParameterRow("gasBeforeRepairExcludingTPLowPressureKg")}
 
           {/* 82. ИТОГО Перед проведением ремонтных работ, за исключением объема ТП, при Р<1 МПа, норма */}
           {renderParameterRow(
             "totalGasBeforeRepairExcludingTPLowPressureNormativeCubicMeters"
           )}
           {renderParameterRow(
-            "totalGasBeforeRepairExcludingTPLowPressureNormativeFuelEquivalent",
-            false
+            "totalGasBeforeRepairExcludingTPLowPressureNormativeFuelEquivalent"
           )}
           {renderParameterRow(
-            "totalGasBeforeRepairExcludingTPLowPressureNormativeKg",
-            false
+            "totalGasBeforeRepairExcludingTPLowPressureNormativeKg"
           )}
 
           {/* 83. ИТОГО Перед проведением ремонтных работ, за исключением объема ТП, при Р<1 МПа, план */}
@@ -953,12 +926,10 @@ export function SectionTable({ section, onSectionChange }: SectionTableProps) {
             "totalGasBeforeRepairExcludingTPLowPressurePlanCubicMeters"
           )}
           {renderParameterRow(
-            "totalGasBeforeRepairExcludingTPLowPressurePlanFuelEquivalent",
-            false
+            "totalGasBeforeRepairExcludingTPLowPressurePlanFuelEquivalent"
           )}
           {renderParameterRow(
-            "totalGasBeforeRepairExcludingTPLowPressurePlanKg",
-            false
+            "totalGasBeforeRepairExcludingTPLowPressurePlanKg"
           )}
 
           {/* 84. ИТОГО Перед проведением ремонтных работ, за исключением объема ТП, при Р<1 МПа, факт */}
@@ -966,12 +937,10 @@ export function SectionTable({ section, onSectionChange }: SectionTableProps) {
             "totalGasBeforeRepairExcludingTPLowPressureFactCubicMeters"
           )}
           {renderParameterRow(
-            "totalGasBeforeRepairExcludingTPLowPressureFactFuelEquivalent",
-            false
+            "totalGasBeforeRepairExcludingTPLowPressureFactFuelEquivalent"
           )}
           {renderParameterRow(
-            "totalGasBeforeRepairExcludingTPLowPressureFactKg",
-            false
+            "totalGasBeforeRepairExcludingTPLowPressureFactKg"
           )}
 
           {/* 85. % Выработки газа (без учета продувки) */}
